@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import MyInput from "./components/UI/input/MyInput";
+import CreateCard from "./components/CreateCard";
 
 function App() {
     return (
         <>
-            <MyInput placeholder="Write a task..." />
+            <CreateCard />
             <h1>To-do list</h1>
         </>
     );

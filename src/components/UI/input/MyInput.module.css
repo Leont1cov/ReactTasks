@@ -1,3 +1,14 @@
+@import "/src/App.css";
+
 .MyInput {
     max-width: 297px;
+    padding: 14px 21px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--color-gray);
+    font-size: 18px;
+}
+
+.MyInput::placeholder {
+    color: var(--color-black);
 }

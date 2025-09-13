@@ -5,7 +5,7 @@ import MyInput from "./components/UI/input/MyInput";
 function App() {
     return (
         <>
-            <MyInput />
+            <MyInput placeholder="Write a task..." />
             <h1>To-do list</h1>
         </>
     );

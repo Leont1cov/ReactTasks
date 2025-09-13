@@ -1,10 +1,10 @@
 import "./TodoCard.css";
 
-const TodoCard = ({ children }) => {
+const TodoCard = ({ card }) => {
     return (
         <div className="card">
             <input type="checkbox" />
-            {children}
+            {card}
         </div>
     );
 };

@@ -1,5 +1,5 @@
-export const cards = [
-    { title: "JavaScript" },
-    { title: "HTML CSS" },
-    { title: "C++" },
-];
+// export const cards = [
+//     { title: "JavaScript" },
+//     { title: "HTML CSS" },
+//     { title: "C++" },
+// ];

@@ -1,11 +1,10 @@
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
-import { useState } from "react";
 
-const CreateCard = ({ onClick }) => {
+const CreateCard = ({ onClick, onChange }) => {
     return (
         <div style={{ display: "flex", gap: 10 }}>
-            {/* <MyInput props={props} placeholder="Write a task..." /> */}
+            <MyInput onChange={onChange} placeholder="Write a task..." />
             <MyButton onClick={onClick}>Add</MyButton>
         </div>
     );

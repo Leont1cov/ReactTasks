@@ -2,15 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import CreateCard from "./components/CreateCard";
 import TodoList from "./components/TodoList/TodoList";
-import MyInput from "./components/UI/input/MyInput";
-// import { cards } from "./components/data/cards";
+import { cards as initialCards } from "./components/data/cards";
 
 function App() {
-    const [cards, setCards] = useState([
-        { title: "JavaScript" },
-        { title: "HTML CSS" },
-        { title: "C++" },
-    ]);
+    const [cards, setCards] = useState(initialCards);
     const [text, setText] = useState("");
 
     const createTask = () => {
@@ -18,10 +13,9 @@ function App() {
             title: text,
         };
         setCards([...cards, newCard]);
-        console.log(cards);
     };
 
-    const func = (e) => {
+    const handleInputChange = (e) => {
         setText(e.target.value);
     };
 
@@ -30,8 +24,7 @@ function App() {
             <h1 style={{ display: "flex", justifyContent: "center" }}>
                 To-do list
             </h1>
-            <MyInput onChange={func} placeholder="Write a task..." />
-            <CreateCard onClick={createTask} />
+            <CreateCard onClick={createTask} onChange={handleInputChange} />
             <TodoList cards={cards} />
         </>
     );

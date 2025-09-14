@@ -9,10 +9,20 @@
     background-color: var(--color-gray);
     border-radius: 12px;
     font-size: 17px;
+    transition: background-color 0.2s ease;
+}
+
+.card-done {
+    background-color: var(--color-black-20);
 }
 
 .card input[type="checkbox"] {
     width: 20px;
     height: 20px;
     border-radius: 6px;
+    accent-color: var(--color-charcoal-Brown);
+}
+
+.card-checked {
+    text-decoration: line-through;
 }

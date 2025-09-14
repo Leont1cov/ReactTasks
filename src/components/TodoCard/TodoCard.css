@@ -26,3 +26,12 @@
 .card-checked {
     text-decoration: line-through;
 }
+
+.card-deleate {
+    margin-left: auto;
+}
+
+.card-deleate-border {
+    background-color: var(--color-black-20);
+    color: #fff;
+}

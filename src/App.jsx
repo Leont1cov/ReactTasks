@@ -26,11 +26,19 @@ function App() {
 
     return (
         <>
-            <h1 style={{ display: "flex", justifyContent: "center" }}>
-                To-do list
-            </h1>
-            <CreateCard onClick={createTask} onChange={handleInputChange} />
-            <TodoList deleateTask={deleateTask} cards={cards} />
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <h1 style={{ display: "flex", justifyContent: "center" }}>
+                    To-do list
+                </h1>
+                <CreateCard onClick={createTask} onChange={handleInputChange} />
+                <TodoList deleateTask={deleateTask} cards={cards} />
+            </div>
         </>
     );
 }

@@ -1,5 +1,5 @@
 export const cards = [
-    { title: "JavaScript" },
-    { title: "HTML CSS" },
-    { title: "C++" },
+    { id: 1, title: "JavaScript" },
+    { id: 2, title: "HTML CSS" },
+    { id: 3, title: "C++" },
 ];

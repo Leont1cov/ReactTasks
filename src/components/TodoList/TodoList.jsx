@@ -1,11 +1,17 @@
 import TodoCard from "../TodoCard/TodoCard";
 import cl from "../TodoList/TodoList.module.css";
 
-const TodoList = ({ cards }) => {
+const TodoList = ({ cards, deleateTask }) => {
     return (
         <div className={cl.list}>
-            {cards.map((element, index) => {
-                return <TodoCard key={index + 1} card={element.title} />;
+            {cards.map((element) => {
+                return (
+                    <TodoCard
+                        deleateTask={deleateTask}
+                        key={element.id}
+                        card={element}
+                    />
+                );
             })}
         </div>
     );

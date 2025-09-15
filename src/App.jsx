@@ -10,9 +10,14 @@ function App() {
 
     const createTask = () => {
         const newCard = {
+            id: Date.now(),
             title: text,
         };
         setCards([...cards, newCard]);
+    };
+
+    const deleateTask = (card) => {
+        setCards(cards.filter((p) => p.id !== card.id));
     };
 
     const handleInputChange = (e) => {
@@ -25,7 +30,7 @@ function App() {
                 To-do list
             </h1>
             <CreateCard onClick={createTask} onChange={handleInputChange} />
-            <TodoList cards={cards} />
+            <TodoList deleateTask={deleateTask} cards={cards} />
         </>
     );
 }

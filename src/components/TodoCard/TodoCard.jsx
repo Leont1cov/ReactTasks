@@ -3,17 +3,21 @@ import "./TodoCard.css";
 import MyButton from "../UI/button/MyButton";
 import clsx from "clsx";
 
-const TodoCard = ({ card, deleateTask }) => {
-    const [checked, setChecked] = useState(false);
-
+const TodoCard = ({ card, deleateTask, toggleDone }) => {
     return (
-        <div className={clsx("card", { " card-done": checked })}>
-            <input onClick={() => setChecked(!checked)} type="checkbox" />
-            <span className={checked ? "card-checked" : ""}>{card.title}</span>
+        <div className={clsx("card", { "card-done done": card.done })}>
+            <input
+                onChange={() => toggleDone(card)}
+                checked={card.done}
+                type="checkbox"
+            />
+            <span className={card.done ? "card-checked" : ""}>
+                {card.title}
+            </span>
             <MyButton
                 onClick={() => deleateTask(card)}
                 className={clsx("card-deleate", {
-                    " card-deleate-border": checked,
+                    " card-deleate-border": card.done,
                 })}
             >
                 Deleate

@@ -3,15 +3,18 @@ import "./App.css";
 import CreateCard from "./components/CreateCard";
 import TodoList from "./components/TodoList/TodoList";
 import { cards as initialCards } from "./components/data/cards";
+import MyButton from "./components/UI/button/MyButton";
 
 function App() {
     const [cards, setCards] = useState(initialCards);
     const [text, setText] = useState("");
+    const [filter, setFilter] = useState("all");
 
     const createTask = () => {
         const newCard = {
             id: Date.now(),
             title: text,
+            done: false,
         };
         setCards([...cards, newCard]);
     };
@@ -22,6 +25,20 @@ function App() {
 
     const handleInputChange = (e) => {
         setText(e.target.value);
+    };
+
+    const getFilteredCard = () => {
+        if (filter === "done") return cards.filter((e) => e.done);
+
+        if (filter === "active") return cards.filter((e) => !e.done);
+
+        return cards;
+    };
+
+    const toggleDone = (card) => {
+        setCards(
+            cards.map((p) => (p.id == card.id ? { ...p, done: !p.done } : p))
+        );
     };
 
     return (
@@ -36,8 +53,19 @@ function App() {
                 <h1 style={{ display: "flex", justifyContent: "center" }}>
                     To-do list
                 </h1>
+                <div style={{ display: "flex", gap: 10, marginBottom: 30 }}>
+                    <MyButton onClick={() => setFilter("all")}>All</MyButton>
+                    <MyButton onClick={() => setFilter("active")}>
+                        Active
+                    </MyButton>
+                    <MyButton onClick={() => setFilter("done")}>Done</MyButton>
+                </div>
                 <CreateCard onClick={createTask} onChange={handleInputChange} />
-                <TodoList deleateTask={deleateTask} cards={cards} />
+                <TodoList
+                    toggleDone={toggleDone}
+                    deleateTask={deleateTask}
+                    cards={getFilteredCard()}
+                />
             </div>
         </>
     );

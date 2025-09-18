@@ -1,0 +1,10 @@
+.CreateCard {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 452px) {
+    .CreateCard {
+        flex-direction: column;
+    }
+}

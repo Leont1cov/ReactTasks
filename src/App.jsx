@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import CreateCard from "./components/CreateCard";
+import CreateCard from "./components/CreateCard/CreateCard";
 import TodoList from "./components/TodoList/TodoList";
 import { cards as initialCards } from "./components/data/cards";
 import MyButton from "./components/UI/button/MyButton";

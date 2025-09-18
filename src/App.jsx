@@ -27,6 +27,10 @@ function App() {
         setText(e.target.value);
     };
 
+    const clearList = () => {
+        setCards([]);
+    };
+
     const getFilteredCard = () => {
         if (filter === "done") return cards.filter((e) => e.done);
 
@@ -60,7 +64,11 @@ function App() {
                     </MyButton>
                     <MyButton onClick={() => setFilter("done")}>Done</MyButton>
                 </div>
-                <CreateCard onClick={createTask} onChange={handleInputChange} />
+                <CreateCard
+                    clearList={clearList}
+                    onClick={createTask}
+                    onChange={handleInputChange}
+                />
                 <TodoList
                     toggleDone={toggleDone}
                     deleateTask={deleateTask}

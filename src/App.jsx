@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import CreateCard from "./components/CreateCard/CreateCard";
 import TodoList from "./components/TodoList/TodoList";
@@ -6,9 +6,16 @@ import { cards as initialCards } from "./components/data/cards";
 import MyButton from "./components/UI/button/MyButton";
 
 function App() {
-    const [cards, setCards] = useState(initialCards);
+    const [cards, setCards] = useState(() => {
+        const saved = localStorage.getItem("tasks");
+        return saved ? JSON.parse(saved) : initialCards;
+    });
     const [text, setText] = useState("");
     const [filter, setFilter] = useState("all");
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(cards));
+    }, [cards]);
 
     const createTask = () => {
         const newCard = {
